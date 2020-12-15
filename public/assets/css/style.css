@@ -1,0 +1,29 @@
+@import url(fontawesome-all.min.css);
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,700,900");
+
+.welcometext {
+    box-sizing: inherit;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    transition: border-bottom-color 0.2s ease, color 0.2s ease;
+    border-bottom: 0;
+    color: inherit;
+    font-weight: 900;
+    letter-spacing: 0.35em;
+    margin: 0 0 2.5em 0;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.titlesmeme {
+    font-weight: 1900;
+    font-size: 250%;
+}
+
+.welcome {
+    font-weight: 1100;
+    font-size: 150%;
+}

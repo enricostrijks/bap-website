@@ -13,6 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::redirect('/home', '/')->name('home');
+
+Route::get('/account', 'App\Http\Controllers\AccountController@account')->name('account');
+
+Route::get('/elements', 'App\Http\Controllers\DeveloperController@elements')->name('elements');
+
+Route::get('/generic', 'App\Http\Controllers\DeveloperController@generic')->name('generic');
+
+Route::get('/upload', 'App\Http\Controllers\ImageController@upload')->name('upload');
+
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
+
+Auth::routes();

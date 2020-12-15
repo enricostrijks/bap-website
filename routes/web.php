@@ -25,6 +25,8 @@ Route::get('/generic', 'App\Http\Controllers\DeveloperController@generic')->name
 
 Route::get('/upload', 'App\Http\Controllers\ImageController@upload')->name('upload');
 
-Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
+Route::get('/logout', 'App\Http\Controllers\Auth\LoginController@logout')->name('logout');
+
+Route::post('/postmeme', 'App\Http\Controllers\ImageController@store')->name('postmeme');
 
 Auth::routes();

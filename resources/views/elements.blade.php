@@ -21,7 +21,7 @@
 						<div class="inner">
 
 							<!-- Logo -->
-								<a href="index.html" class="logo">
+								<a href="{{ route('home') }}" class="logo">
 									<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">Phantom</span>
 								</a>
 
@@ -39,11 +39,10 @@
 					<nav id="menu">
 						<h2>Menu</h2>
 						<ul>
-							<li><a href="index.html">Home</a></li>
-							<li><a href="generic.html">Ipsum veroeros</a></li>
-							<li><a href="generic.html">Tempus etiam</a></li>
-							<li><a href="generic.html">Consequat dolor</a></li>
-							<li><a href="elements.html">Elements</a></li>
+						    <li><a href="{{ route('home') }}">Home</a></li>
+							<li><a href="{{ route('generic') }}">Generic</a></li>
+							<li><a href="{{ route('elements') }}">Elements</a></li>
+							<li><a href="{{ route('logout') }}"> Logout </a></li>
 						</ul>
 					</nav>
 

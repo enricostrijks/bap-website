@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Meme;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ImageController extends Controller
 {
@@ -10,21 +12,20 @@ class ImageController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate(
+        $data = $request->validate(
             [
                 'title' => 'required',
                 'description' => 'required',
                 'general' => 'required',
                 'privacy' => 'required',
-                'meme' => 'required',
+                'user_id' => 'required',
+                'meme' => 'required|image',
             ]
             );
-        if($file = $request->file('meme')) {
-            $request->meme->store('memes');
-            $post = new ImageController();
-            $post->store();
-            return view('home');
-        }
-        return redirect()->back();
+            $newFilename = $data['meme']->store('memes', 'public');
+            $data['meme'] = $newFilename;
+            Meme::create($data);
+            $memes = DB::table('memes')->get();
+            return view('home', ['memes' => $memes]);
     }
 }

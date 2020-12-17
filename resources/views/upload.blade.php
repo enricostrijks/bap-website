@@ -26,6 +26,7 @@
 							<li><a href="{{ route('home') }}">Home</a></li>
 							<li><a href="{{ route('generic') }}">Generic</a></li>
 							<li><a href="{{ route('elements') }}">Elements</a></li>
+							<li><a href="{{ route('upload') }}">Upload</a></li>
 							<li><a href="{{ route('logout') }}"> Logout </a></li>
 						</ul>
 					</nav>
@@ -58,6 +59,7 @@
 										<label for="general">Agree to Terms and Conditions</label>
 										<input type="checkbox" id="privacy" name="privacy" value="privacy">
 										<label for="privacy">Agree to privacy policy</label>
+										<input type="hidden" value="{{ Auth::user()->name }}" name="user_id">
 										</div>
 									</div>
 									<ul class="actions">

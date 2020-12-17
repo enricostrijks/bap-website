@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Meme;
 
 class HomeController extends Controller
 {
@@ -24,8 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $memes = DB::table('memes')->get();
-
+        $memes = Meme::paginate(10);
         return view('home', ['memes' => $memes]);
     }
 }

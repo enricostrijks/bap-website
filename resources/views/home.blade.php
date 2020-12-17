@@ -1,13 +1,6 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<title>Smeme</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<link rel="stylesheet" href="assets/css/style.css" />
-	</head>
+	@include('includes.head')
 	<body class="is-preload">
 			<div id="wrapper">
 					<header id="header">
@@ -25,16 +18,7 @@
 
 						</div>
 					</header>
-					<nav id="menu">
-						<h2>Menu</h2>
-						<ul>
-							<li><a href="{{ route('home') }}">Home</a></li>
-							<li><a href="{{ route('generic') }}">Generic</a></li>
-							<li><a href="{{ route('elements') }}">Elements</a></li>
-							<li><a href="{{ route('upload') }}">Upload</a></li>
-							<li><a href="{{ route('logout') }}"> Logout </a></li>
-						</ul>
-					</nav>
+					@include('includes.menu')
 					<div id="main">
 						<div class="inner">
 							<header>
@@ -53,46 +37,21 @@
 										<div class="content">
 											<p class="memedesc">{{ $meme->description }}</p>
 										</div>
-										<p class="memeuser">Uploaded by : {{ $meme->user_id }}</p>
+										<p class="memeuser">Uploaded by : {{ $meme->user->name }}</p>
 
-										<a href="{{ route('generic') }}">
+										<a href="{{ url('memes/' .$meme->id) }}">
                                         	<p>Zie meer...</p>
 										</a>
 									</div>
 								</article>
 							@endforeach
+							{{ $memes->links('pagination::bootstrap-4') }}
 						</div>
 					</div>
-					<footer id="footer">
-						<div class="inner">
-							<section>
-								<h2>Contacteer ons!</h2>
-								<form method="post" action="#">
-									<div class="fields">
-										<div class="field half">
-											<input type="text" name="name" id="name" placeholder="Name" />
-										</div>
-										<div class="field half">
-											<input type="email" name="email" id="email" placeholder="Email" />
-										</div>
-										<div class="field">
-											<textarea name="message" id="message" placeholder="Message"></textarea>
-										</div>
-									</div>
-									<ul class="actions">
-										<li><input type="submit" value="Send" class="primary" /></li>
-									</ul>
-								</form>
-							</section>
-						</div>
-					</footer>
+					@include('includes.footer')
 
 			</div>
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			@include('includes.scripts')
 
 	</body>
 </html>

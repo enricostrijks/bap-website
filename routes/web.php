@@ -29,4 +29,6 @@ Route::get('/logout', 'App\Http\Controllers\Auth\LoginController@logout')->name(
 
 Route::post('/postmeme', 'App\Http\Controllers\ImageController@store')->name('postmeme');
 
+Route::get('/memes/{id}', 'App\Http\Controllers\ImageController@memeindivid')->name('meme');
+
 Auth::routes();

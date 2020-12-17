@@ -1,13 +1,6 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<title>Smeme</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<meta name="csrf-token" content="{{ csrf_token() }}">
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
+	@include('includes.head')
 	<body class="is-preload">
 			<div id="wrapper">
 					<header id="header">
@@ -20,16 +13,7 @@
 
 						</div>
 					</header>
-					<nav id="menu">
-						<h2>Menu</h2>
-						<ul>
-							<li><a href="{{ route('home') }}">Home</a></li>
-							<li><a href="{{ route('generic') }}">Generic</a></li>
-							<li><a href="{{ route('elements') }}">Elements</a></li>
-							<li><a href="{{ route('upload') }}">Upload</a></li>
-							<li><a href="{{ route('logout') }}"> Logout </a></li>
-						</ul>
-					</nav>
+					@include('includes.menu')
 					<div id="main">
                     <div class="inner">
 							<section>
@@ -71,11 +55,7 @@
 						</div>
 					</div>
 			</div>
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			@include('includes.scripts')
 
 	</body>
 </html>

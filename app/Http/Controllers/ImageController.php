@@ -24,8 +24,14 @@ class ImageController extends Controller
             );
             $newFilename = $data['meme']->store('memes', 'public');
             $data['meme'] = $newFilename;
-            Meme::create($data);
-            $memes = DB::table('memes')->get();
-            return view('home', ['memes' => $memes]);
+            $memecreate = Meme::create($data);
+            // $memes = Meme::All();
+            return redirect()->route('meme', ['id' => $memecreate->id]);
+            // return view('home', ['memes' => $memes]);
+    }
+
+    public function memeindivid($id) {
+        $memei = Meme::find($id);
+        return view('meme', ['memei' => $memei]);
     }
 }

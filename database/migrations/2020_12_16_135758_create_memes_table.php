@@ -19,9 +19,10 @@ class CreateMemesTable extends Migration
             $table->text('description')->nullable();
             $table->string('general', 255);
             $table->string('privacy', 255);
-            $table->string('user_id', 255);
+            $table->unsignedBigInteger('user_id');
             $table->string('meme')->nullable();
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

@@ -16,6 +16,12 @@ Het ziet er overzichtelijk uit.
 
 ### Stappenplan komende weken (wat ga ik met de feedback doen?)
 
+-   Upvote/downvote.
+-   Titel erbij zetten als ik iets wil verwijderen.
+-   Eventuele darkmode
+-   Werkende edit
+-   Upload veranderen naar userID ipv username
+
 ---
 
 ## Hugo van der geest
@@ -26,7 +32,7 @@ Eenden uploaden
 
 ### Opmerkingen / Vragen
 
--
+Heb je het logo zelf gemaakt?
 
 ### Tips
 

@@ -6,5 +6,5 @@ use Illuminate\Http\Request;
 
 class FrontendController extends Controller
 {
-    function home() { return view('home'); }
+    function edit() { return view('edit'); }
 }

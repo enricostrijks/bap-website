@@ -29,7 +29,7 @@
 							@foreach ($memes as $meme)
 
 							<article class="stylememe">
-									<span class="image">
+									<span class="imagehome">
 									    <img class="memeimg" src="{{ asset('storage/' . $meme->meme) }}">
 									</span>
 									<div class="titledescusertext">
@@ -39,9 +39,19 @@
 										</div>
 										<p class="memeuser">Uploaded by : {{ $meme->user->name }}</p>
 
-										<a href="{{ url('memes/' .$meme->id) }}">
-                                        	<p>Zie meer...</p>
-										</a>
+										<div class="memelinks">
+										@if ($meme->userCanEdit(Auth::user()))
+											<a href="{{ url('editpost/' .$meme->id) }}">
+											<p>Bewerken</p>
+											</a>
+											<a href="{{ url('delpost/' .$meme->id) }}">
+											<p>Verwijderen</p>
+											</a>
+										@endif
+											<a href="{{ url('memes/' .$meme->id) }}">
+												<p>Zie meer...</p>
+											</a>
+										</div>
 									</div>
 								</article>
 							@endforeach

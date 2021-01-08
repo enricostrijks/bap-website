@@ -23,18 +23,6 @@ class MemeSeeder extends Seeder
             $meme->general = 'general';
             $meme->privacy = 'privacy';
             $meme->user_id = $user->id;
-            $meme->meme = 'memes/3kZCmVXeH6HwS4vouRg9Oe0WIufH5AZog21Q3ADT.png';
-            $meme->created_at = new \DateTime();
-            $meme->updated_at = new \DateTime();
-            $meme->save();
-        }
-        for($i = 0; $i < 4; $i++){
-            $meme = new Meme();
-            $meme->title = 'Meme name' . $i;
-            $meme->description = 'Meme desc';
-            $meme->general = 'general';
-            $meme->privacy = 'privacy';
-            $meme->user_id = $user->id;
             $meme->meme = 'memes/8ilAulKPi1019ZCFgxZljDAzdg6j02v0YtO8ij37.gif';
             $meme->created_at = new \DateTime();
             $meme->updated_at = new \DateTime();

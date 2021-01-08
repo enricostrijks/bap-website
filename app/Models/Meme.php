@@ -13,4 +13,8 @@ class Meme extends Model
     public function user() {
         return $this->belongsTo( User::class );
     }
+
+    function userCanEdit(User $user) {
+        return $this->user_id == $user->id;
+    }
 }

@@ -34,4 +34,23 @@ class ImageController extends Controller
         $memei = Meme::find($id);
         return view('meme', ['memei' => $memei]);
     }
+
+    public function editpost($id) {
+        $memei = Meme::find($id);
+        return view('editpost', ['memei' => $memei]);
+    }
+
+    public function delpost($id) {
+        $memei = Meme::find($id);
+
+        return view('delete', compact('memei'));
+    }
+
+    public function destroypost($id) {
+        $memei = Meme::findOrFail($id);
+        $memei->delete();
+        $memes = Meme::paginate(10);
+        // return view('home', ['memes' => $memes]);
+        return redirect()->route('home', ['memes' => $memes]);
+    }
 }

@@ -29,6 +29,20 @@ Route::get('/logout', 'App\Http\Controllers\Auth\LoginController@logout')->name(
 
 Route::post('/postmeme', 'App\Http\Controllers\ImageController@store')->name('postmeme');
 
+Route::post('/postedit', 'App\Http\Controllers\Auth\UpdateController@update')->name('postedit');
+
+Route::post('/posteditpost', 'App\Http\Controllers\Auth\UpdateController@updatepost')->name('posteditpost');
+
 Route::get('/memes/{id}', 'App\Http\Controllers\ImageController@memeindivid')->name('meme');
 
+Route::get('/edit', 'App\Http\Controllers\FrontendController@edit')->name('edit');
+
+Route::get('/editpost/{id}', 'App\Http\Controllers\ImageController@editpost')->name('editpost');
+
+Route::get('/delpost/{id}', 'App\Http\Controllers\ImageController@delpost')->name('delpost');
+
+Route::get('/destroypost/{id}', 'App\Http\Controllers\ImageController@destroypost')->name('destroypost');
+
 Auth::routes();
+
+// if (Auth::user()->id==Post::find($id)->user->id)

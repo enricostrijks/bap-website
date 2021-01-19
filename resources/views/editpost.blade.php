@@ -35,35 +35,44 @@
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
-							<h1>Edit Profile</h1>
-							<span class="image main"><img src="images/pic13.jpg" alt="" /></span>
-							<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique.</p>
+							<h1>Edit Meme</h1>
                             <div class="inner">
                             <h2 class="memetitlefull">{{ $memei->title }}</h2>
                             <span class="image main memeimgfull"><img class="memeimgfull" src="{{ asset('storage/' . $memei->meme) }}"></span>
                             <div class="content">
 								<p class="memedescfull">{{ $memei->description }}</p>
 							</div>
-							<p class="memeuserfull">Uploaded by : {{ $memei->user->name }}</p>
-                       		</div>
+							@if($errors->any())
+									<div class="alert alert-danger alert-danger-edit ">
+										<ul>
+											@foreach ($errors->all() as $error)
+												<li>{{$error}}</li>
+											@endforeach
+										</ul>
+									</div>
+								@endif
+						</div>
 							<form action="{{ route('posteditpost') }}" method="POST" enctype="multipart/form-data">
 								{{ csrf_field() }}
+								<input type="hidden" value="{{ request()->route('id') }}" name="id">
 									<div class="fields">
 										<div class="field">
-                                            <label for="name">Gebruikersnaam</label>
-											<input type="text" name="name" id="name" placeholder="{{ Auth::user()->name }}" />
+                                            <label for="title">Meme naam</label>
+											<input type="text" name="title" id="title" placeholder="{{ $memei->title }}" value="{{ old('title', $memei->title) }}" />
 										</div>
                                         <div class="field">
-                                            <label for="email">Email</label>
-											<input type="text" name="email" id="email" placeholder="{{ Auth::user()->email }}" />
+                                            <label for="description">Meme beschrijving</label>
+											<input type="text" name="description" id="description" placeholder="{{ $memei->description }}" value="{{ old('description', $memei->description) }}" />
 										</div>
 										<div class="field">
-                                            <label for="password">Wachtwoord</label>
-											<input type="text" name="password" id="password" placeholder="Nieuw wachtwoord" />
+                                            <label for="meme">Afbeelding</label>
+											<li><a href="#" class="button icon solid fa-upload"><input type="file" name="meme" class="editimage"/></a></li>
 										</div>
 									</div>
 									<ul class="actions">
+									@if ($memei->userCanEdit(Auth::user()))
 										<li><input type="submit" value="Wijzigen" class="primary" /></li>
+									@endif
 									</ul>
 								</form>
                         </div>

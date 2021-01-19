@@ -31,7 +31,7 @@ Route::post('/postmeme', 'App\Http\Controllers\ImageController@store')->name('po
 
 Route::post('/postedit', 'App\Http\Controllers\Auth\UpdateController@update')->name('postedit');
 
-Route::post('/posteditpost', 'App\Http\Controllers\Auth\UpdateController@updatepost')->name('posteditpost');
+Route::post('/posteditpost', 'App\Http\Controllers\UpdateMemeController@update')->name('posteditpost');
 
 Route::get('/memes/{id}', 'App\Http\Controllers\ImageController@memeindivid')->name('meme');
 

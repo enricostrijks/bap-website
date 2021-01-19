@@ -43,7 +43,7 @@
 										<label for="general">Agree to Terms and Conditions</label>
 										<input type="checkbox" id="privacy" name="privacy" value="privacy">
 										<label for="privacy">Agree to privacy policy</label>
-										<input type="hidden" value="{{ Auth::user()->name }}" name="user_id">
+										<input type="hidden" value="{{ Auth::id() }}" name="user_id">
 										</div>
 									</div>
 									<ul class="actions">

@@ -40,11 +40,14 @@
                                 <div class="modal-body">
                                     @csrf
                                     <h5 class="text-center">Hiermee verwijder je de meme : {{ $memei->title }}! Ben je hier zeker van?</h5>
+									<h2 class="memetitle">{{ $memei->title }}</h2>
                                     <img class="memeimg" src="{{ asset('storage/' . $memei->meme) }}">
                                 </div>
                                 <div class="modal-footer-delete">
                                     <a href=" {{ route('home') }} "><button type="button" class="btn btn-secondary">Annuleer</button><a>
-                                    <button type="submit" class="btn btn-danger">Ja, verwijder mijn meme</button>
+                                    @if ($memei->userCanEdit(Auth::user()))
+									<button type="submit" class="btn btn-danger">Ja, verwijder mijn meme</button>						
+									@endif
                                 </div>
                             </form>
                         </div>

@@ -1,6 +1,10 @@
 @import url(fontawesome-all.min.css);
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,700,900");
 
+li {
+    list-style: none;
+}
+
 .welcometext {
     box-sizing: inherit;
     padding: 0;
@@ -103,6 +107,11 @@
     margin-top: 1em;
 }
 
-.modal-footer-delete a{
+.modal-footer-delete a {
     border-bottom: none;
+}
+
+.alert-danger-edit {
+    border-radius: 25px;
+    border: 2px solid red;
 }

@@ -31,6 +31,6 @@ class UpdateController extends Controller
             $user->password = bcrypt($request->password);
         }
         $user->save();
-        return view('home.profile', array('user' => Auth::user()));
+        return redirect()->route('logout');
     }
 }

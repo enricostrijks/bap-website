@@ -5,6 +5,7 @@ use App\Models\Meme;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 
 class ImageController extends Controller
 {
@@ -37,17 +38,27 @@ class ImageController extends Controller
 
     public function editpost($id) {
         $memei = Meme::find($id);
+        $memei = Meme::find($id);
+        if (! Gate::allows('delete-edit-perm', $memei)) {
+            abort(403);
+        }
         return view('editpost', ['memei' => $memei]);
     }
 
     public function delpost($id) {
         $memei = Meme::find($id);
-
+        if (! Gate::allows('delete-edit-perm', $memei)) {
+            abort(403);
+        }
         return view('delete', compact('memei'));
     }
 
     public function destroypost($id) {
         $memei = Meme::findOrFail($id);
+        $memei = Meme::find($id);
+        if (! Gate::allows('delete-edit-perm', $memei)) {
+            abort(403);
+        }
         $memei->delete();
         $memes = Meme::paginate(10);
         // return view('home', ['memes' => $memes]);

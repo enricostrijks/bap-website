@@ -5,6 +5,7 @@
 							<!-- <li><a href="{{ route('generic') }}">Generic</a></li> -->
 							<!-- <li><a href="{{ route('elements') }}">Elements</a></li> -->
 							<li><a href="{{ route('upload') }}">Upload</a></li>
+							<li><a href="{{ route('edit') }}">Edit Profile</a></li>
 							<li><a href="{{ route('logout') }}"> Logout </a></li>
 						</ul>
 					</nav>

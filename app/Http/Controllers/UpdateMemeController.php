@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 class UpdateMemeController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     function update(Request $req) {
         $rules = [
             'title' => 'required',

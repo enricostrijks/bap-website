@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Gate;
 
 class ImageController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     function upload() { return view('upload'); }
 
     public function store(Request $request)
